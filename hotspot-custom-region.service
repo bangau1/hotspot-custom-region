@@ -1,0 +1,9 @@
+[Unit]
+Description=A simple script that keeps the Wifi Region Information to US region.
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/bin/hotspot-custom-region.sh
+
+[Install]
+WantedBy=multi-user.target
