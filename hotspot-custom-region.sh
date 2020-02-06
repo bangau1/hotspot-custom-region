@@ -19,7 +19,8 @@ do
     COUNTRY=`sudo iw reg get | grep country | awk '{print $2}' | cut -d':' -f1`
     sys_print "COUNTRY is ${COUNTRY}" "info"
     if [[ "${COUNTRY}" != "${TARGET_COUNTRY}" ]]; then
-    	if [[ "${COUNTRY}" != "98" ]]; then
+	# this 98 country code somehow shown even after `sudo iw reg set US`. But the 5Ghz channel is enabled. So this is working. Still looking on why this number appears: https://raspberrypi.stackexchange.com/questions/108097/how-to-change-wi-fi-country-in-raspberry-pi-4
+	if [[ "${COUNTRY}" != "98" ]]; then
 	    sys_print "Changing back to ${TARGET_COUNTRY} as the current COUNTRY=${COUNTRY}" "notice" 
 	    sudo iw reg set ${TARGET_COUNTRY} 
 	    sudo systemctl restart hostapd.service
