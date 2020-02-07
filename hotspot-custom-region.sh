@@ -32,5 +32,5 @@ do
     else
 	sys_print "Nothing to do.." "info"
     fi
-    sleep 5;
+    sleep 30;
 done
